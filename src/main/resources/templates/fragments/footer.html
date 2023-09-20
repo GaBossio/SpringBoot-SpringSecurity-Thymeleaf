@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+</head>
+<body>
+<div th:fragment="footer">
+
+    <div class="container">
+
+        <footer>
+            <!-- this is footer -->
+            &copy; 2023 mkyong.com/tutorial
+            <span sec:authorize="isAuthenticated()">
+                | Logged user: <span th:remove="tag" sec:authentication="name" style="display: inline-block;">thymeleaf</span>
+                <form th:action="@{/logout}" method="post" style="display: inline-block;">
+                    <input type="submit" value="Sign Out"/>
+                </form>
+            </span>
+
+
+            <script type="text/javascript"
+                    src="webjars/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        </footer>
+    </div>
+
+</div>
+</body>
+</html>
